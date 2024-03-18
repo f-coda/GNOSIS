@@ -17,7 +17,7 @@ The code requires installing DGL ([Deep Graph Library](https://www.dgl.ai/)).
 **Evaluation metrics**:
 
 - **Execution time**: refers to the total amount of time each algorithm requires to produce a solution
--  **Cost function**: This function calculates a cost based on the number of image replicas placed on the network as well as the transfer delays, in order to share the image between all network nodes.
+-  **Cost function**: This function calculates a cost based on the number of image replicas placed on the network as well as the transfer delays, in order to share the image between all network nodes
 - **Vertex cover set size**: the size of vertices in vertex cover
 
 ## Configuration File
@@ -43,6 +43,7 @@ In `parameters_config.json` file, several variables can be configured:
 
 `knearest`: Each node is joined with its $k$ nearest neighbors in a ring topology (*only for Watts-Strogatz graphs*)
 
+--
 More information about setting variables on graphs can be found [here](https://networkx.org/documentation/stable/reference/generated/networkx.generators.random_graphs.newman_watts_strogatz_graph.html). 
 
 ## Usage  
