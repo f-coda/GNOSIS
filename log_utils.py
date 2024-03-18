@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 class mean_val:
     def __init__(self):
         self.k = 0

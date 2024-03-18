@@ -18,7 +18,6 @@ import sys
 import maxmin
 import json
 
-
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-c", "--configFile", type=str, help="path and name to the configuration file")
@@ -37,7 +36,8 @@ if params["network"] == "newman_watts_strogatz":
 cuda_flag = False
 alg = DiscreteActorCritic(mvc, cuda_flag)
 
-num_episodes = 5
+num_episodes = params["episode"]
+
 for i in range(num_episodes):
     T1 = time.time()
     log = alg.train()
@@ -66,12 +66,12 @@ def getScore(graph,placement):
     return score
 
 cuda_flag = False
-if graph == "erdos_renyi":
-    mvc = MVC(number_of_nodes, probability)
-if graph == "barabasi_albert":
-    mvc = MVC_BA(number_of_nodes, degree)
-if graph=="newman_watts_strogatz":
-    mvc = MVC_NWS(number_of_nodes,knearest, probability)
+if params["network"] == "erdos_renyi":
+    mvc = MVC(params["number_of_nodes"], params["probability"])
+if params["network"] == "barabasi_albert":
+    mvc = MVC_BA(params["number_of_nodes"], params["degree"])
+if params["network"] == "newman_watts_strogatz":
+    mvc = MVC_NWS(params["number_of_nodes"], params["knearest"], params["probability"])
 
 ndim = mvc.get_graph_dims()
 
@@ -148,12 +148,12 @@ for i in range(len(nodes_activated)):
         G2[sp[j]][sp[j + 1]]['time'] = G2[sp[j]][sp[j + 1]]['usage'] / G2[sp[j]][sp[j + 1]]['capacity']
         # print(f"Usage of channel {sp[j]} to {sp[j + 1]} is {G2[sp[j]][sp[j + 1]]['time'] * 100}")
 
-# Execution Time
-print("\n", "Execution Time: %s seconds" % (time.time() - start_time))
-# Nodes with image
-print(f"nodes nodes_with_image {nodes_with_image}")
-print("Length of nodes with images", len(nodes_with_image))
-print(f"Cost function value: {getScore(G2, nodes_with_image)}")
+print ("\n \t \t", "Statistics", "\n \t \t")
+# Results
+print("Execution Time: %s seconds" % (time.time() - start_time), "\n")
+print(f"nodes nodes_with_image {nodes_with_image}", "\n")
+print("Length of nodes with images", len(nodes_with_image), "\n")
+print(f"Cost function value: {getScore(G2, nodes_with_image)}",  "\n")
 
 # node_tag = state.g.ndata['x'][:,0].cpu().squeeze().numpy().tolist()
 # nx.draw(state.g.to_networkx(), pos, node_color=node_tag, with_labels=True)
