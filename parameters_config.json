@@ -1,0 +1,7 @@
+{
+	"network": "barabasi_albert",
+	"number_of_nodes": 64,
+	"probability": 0.5,
+	"degree": 1,
+	"knearest": 2
+}
