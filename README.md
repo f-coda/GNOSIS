@@ -52,7 +52,7 @@ More information about setting variables on graphs can be found [here](https://n
 
 ## Cite Us
 
-If you use the above code for your research, please cite our papers:
+If you use the above code for your research, please cite our paper:
 
 - [GNOSIS: Proactive Image Placement Using Graph Neural Networks & Deep Reinforcement Learning](https://ieeexplore.ieee.org/abstract/document/10255001?casa_token=oZPfryvDE1QAAAAA:G6QgrFGGSIt-JDOp0b6ZCs7MAQYNu_V5Kv99Q0yxSUzyXOTkV_x-11AE9J3Fg_qWT2bXVrQS)
        
